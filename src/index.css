@@ -16,6 +16,16 @@ code {
 }
 
 /* Login */
+.g-btn {
+  border-radius: 5px;
+  border: 1px solid !important;
+  padding: 0px !important;
+  /* background-color: ; */
+}
+.g-btn-b {
+  background-color: #2962ff;
+  color: white;
+}
 .fullform {
   max-width: 600px !important;
   background-color: white;
@@ -28,6 +38,7 @@ code {
   background-color: #E2F9F8;
 }
 .login-form {
+  margin-top: 47px;
   max-width: 400px !important;
 }
 .pass-label {

@@ -17,8 +17,9 @@ function App() {
         <Route path="/register" exact component={Register} />
         <Route path="/appoinments" exact component={Appoinments} />
         <Route path="/centers" exact component={Centers} />
-        <Route path="/locations" exact component={Locations} />
         <Route path="/nearby-centers" exact component={NearByCenters} />
+        <Route path="/locations" exact component={Locations} />
+        
         <Redirect to="/" />
       </Switch>
     </UserProvider>

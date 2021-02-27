@@ -1,4 +1,5 @@
 import React,{useState, useContext, useEffect}  from 'react';
+import '../Centers/Centers.css';
 import { useHistory } from 'react-router-dom';
 import { Button,Input } from '@material-ui/core';
 import {db,auth, provider } from '../../firebase';
@@ -57,54 +58,58 @@ export default function NearByCenters()
     }
     return(
         <div className="Center">
-            <div className="table">
-                <table className="mx-auto">
-                    <thead>
-                        <tr>
-                            <th>
-                                Center Name
-                            </th>
-                            <th>
-                                Center Address
-                            </th>
-                            <th>
-                                Center Locality
-                            </th>
-                            <th>
-                                Pincode
-                            </th>
-                            <th>
-                                Appoinmnt Bookings
-                            </th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {console.log(body)}
-                        {
-                            body.map(result =>(
-                                <tr key={result['id']}>
-                                    <td>
-                                        {result['Health Facility Name']}
-                                    </td>
-                                    <td>
-                                        {result['Address']}
-                                    </td>
-                                    <td>
-                                        {result['locality']?result['locality']:"-"}
-                                    </td>
-                                    <td>
-                                        {result['pincode']}
-                                    </td>
-                                    <td>
-                                        <button onClick={e => bookAp(e, history)} id={result['id']} >Book Appoinmnt</button>
-                                    </td>
-                                </tr>
-                            ))
-                        }
-                    </tbody>
-                </table>
-            </div>
-            <button onClick={getData}></button>
+            <div className="container">
+				<h3><center>Vaccination Centers</center></h3>
+				<div className="table">
+					<table className="mx-auto" id="center">
+						<thead>
+							<tr>
+								<th>
+									Center Name
+								</th>
+								<th>
+									Center Address
+								</th>
+								<th>
+									Center Locality
+								</th>
+								<th>
+									Pincode
+								</th>
+								<th>
+									Appointment Bookings
+								</th>
+							</tr>
+						</thead>
+						<tbody>
+							{console.log(body)}
+							{
+								body.map(result =>(
+									<tr key={result['id']}>
+										<td>
+											{result['Health Facility Name']}
+										</td>
+										<td>
+											{result['Address']}
+										</td>
+										<td>
+											{result['locality']?result['locality']:"-"}
+										</td>
+										<td>
+											{result['pincode']}
+										</td>
+										<td>
+											<button onClick={e => bookAp(e, history)} id={result['id']}  >Book Appointment</button>
+										</td>
+									</tr>
+								))
+							}
+						</tbody>
+					</table>
+				</div>
+				<button onClick={getData} id="b2" class="float-right">Show more....</button>
+			</div>
+            	
         </div>
     )
 }

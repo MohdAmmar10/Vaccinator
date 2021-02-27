@@ -14,7 +14,7 @@ export default function Map({center,zoom}) {
     />
     <Marker position={center}>
       <Popup>
-        A pretty CSS3 popup. <br /> Easily customizable.
+            Your Location
       </Popup>
     </Marker>
   </MapContainer>

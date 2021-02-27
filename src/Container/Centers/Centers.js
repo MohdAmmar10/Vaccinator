@@ -99,7 +99,7 @@ export default function Centers()
 											{result['pincode']}
 										</td>
 										<td>
-											<button onClick={e => bookAp(e, history)} id={result['id']} id="b1" >Book Appointment</button>
+											<button onClick={e => bookAp(e, history)} id={result['id']}  >Book Appointment</button>
 										</td>
 									</tr>
 								))

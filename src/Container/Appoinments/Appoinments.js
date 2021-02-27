@@ -54,6 +54,7 @@ export default function Appoinments()
     const location = useLocation();
     const user = useContext(UserContext);
     const cid = location.state
+    console.log(cid)
     const history = useHistory()
     const [availSlots, setAvailSlots] = useState([]);
     const [center, setCenter] = useState({});
@@ -80,7 +81,7 @@ export default function Appoinments()
         
         today = mm + '/' + dd + '/' + yyyy;
         setSelDate(today)
-        db.collection('slots').where("date","==",new Date(today)).get()
+        db.collection('slots').where("date","==",new Date(today)).where("center_id","==",cid).get()
             .then(data => {
                 data = data.docs.map(doc => doc.data());
                 console.log(data)
@@ -99,7 +100,7 @@ export default function Appoinments()
     function getAppointments(e){
         console.log(e.target.value)
         setSelDate(e.target.value)
-        db.collection('slots').where("date","==",new Date(e.target.value)).get()
+        db.collection('slots').where("date","==",new Date(e.target.value)).where("center_id","==",cid).get()
             .then(data => {
                 data = data.docs.map(doc => doc.data());
                 console.log(data)

@@ -158,32 +158,34 @@ export default function Appoinments()
                 </div>
                 <div className="rightNav">
                     <div>
-                        <label htmlFor="appointDate">Appointment Date</label>
+                        <label htmlFor="appointDate">Appointment Date: </label>
                         <input type="date" name="appointDate" id="appointDate" defaultValue={todaysDate} onChange={ getAppointments}/>
                     </div>
                 </div>
             </div>
-            <div className="tableWrapper">
-                <table className="mx-auto border table">
-                    <thead>
-                        <th>
-                            Timing
-                        </th>
-                        <th>
-                            BookNow
-                        </th>
-                    </thead>
-                    <tbody>
-                        {
-                            availSlots.map(slot => (
-                                <tr> 
-                                   <td> { slot } </td>
-                                   <td> <button id= {slot} onClick={e => makeAppointment(e, history)}>Book</button> </td>
-                                </tr>
-                            ))
-                        }
-                    </tbody>
-                </table>
+            <div className="container">
+                <div className="tableWrapper">
+                    <table className="mx-auto border table" id="appoint">
+                        <thead>
+                            <th>
+                                Timing
+                            </th>
+                            <th>
+                                BookNow
+                            </th>
+                        </thead>
+                        <tbody>
+                            {
+                                availSlots.map(slot => (
+                                    <tr> 
+                                    <td> { slot } </td>
+                                    <td> <button id= {slot} onClick={e => makeAppointment(e, history)}>Book</button> </td>
+                                    </tr>
+                                ))
+                            }
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     )

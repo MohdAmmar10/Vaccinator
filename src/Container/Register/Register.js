@@ -5,12 +5,14 @@ import { UserContext } from "../../providers/UserProvider";
 
 import Logo from '../../Images/Logo.jpeg'
 
-export default function Login()
+export default function Register()
 {
     // const[username,setUsername]=useState('');
     const user = useContext(UserContext);
     const[password,setPassword]=useState('');
     const[email,setEmail]=useState('');
+    const[fName,setFName]=useState('');
+    const[phNo,setPhNo]=useState('');
     const [error, setError] = useState(null);
     console.log(user);
     // const[user,setUser]=useState(null);
@@ -22,6 +24,17 @@ export default function Login()
         .then((body) => {
             console.log(body)
             console.log(body.user.uid)
+            console.log(body.user.displayName)
+            console.log(body.user.phoneNo)
+            let no = body.user.phoneNo===undefined||body.user.phoneNo===null?
+            '0000000000':
+            body.user.phoneNo
+            const userRef = db.collection('users').doc(body.user.uid).set({
+                email: body.user.email,
+                name: body.user.displayName,
+                phoneno: no
+              });
+              console.log(userRef)
         // this.props.history.push('/');
         })
         .catch((error) => {
@@ -35,9 +48,17 @@ export default function Login()
         e.preventDefault()
         console.log("normal")
         auth
-        .signInWithEmailAndPassword(email, password)
+        .createUserWithEmailAndPassword(email, password)
         .then((body) => {
             console.log(body.user.uid)
+            console.log(body.user.displayName)
+            console.log(body.user.phoneNo)
+            const userRef = db.collection('users').doc(body.user.uid).set({
+                email: email,
+                name: fName,
+                phoneno: phNo
+              });
+              console.log(userRef)
         // this.props.history.push('/');
         })
         .catch((error) => {
@@ -45,6 +66,9 @@ export default function Login()
             let msg=error.code.split('/')[1]
             setError(msg)
         });
+    }
+    function createUser(uid){
+        
     }
     return(
         <div className="Login pb-4">
@@ -56,7 +80,6 @@ export default function Login()
                 src={Logo}
                 alt="Vaccinator"
               />
-              
             <div className="d-flex flex-column align-items-center justify-content-center login-form">
             {error !== null && (
                 <div className="bg-red-600 w-full text-danger text-center">
@@ -73,11 +96,31 @@ export default function Login()
                 /> 
                 </div> */}
                 <div className="my-3">
+                <label className="mr-4 mb-0">Full Name</label>
+                <Input 
+                placeholder="Full Name"
+                required
+                type="text"
+                value={fName}
+                onChange={(e)=>setFName(e.target.value)}
+                />
+                </div>
+                <div className="my-3">
+                <label className="mr-4 mb-0">Phone No.</label>
+                <Input 
+                placeholder="Phone No."
+                required
+                type="number"
+                value={phNo}
+                onChange={(e)=>setPhNo(e.target.value)}
+                />
+                </div>
+                <div className="my-3">
                 <label className="mr-4 mb-0">Email ID&emsp;</label>
                 <Input 
                 placeholder="Email"
-                type="text"
                 required
+                type="email"
                 value={email}
                 onChange={(e)=>setEmail(e.target.value)}
                 />
@@ -92,7 +135,7 @@ export default function Login()
                 onChange={(e)=>setPassword(e.target.value)}
                 />
                 </div>
-                <Button variant="contained" style={{backgroundColor:'#B3E0DE', borderRadius: '5px'}} type="submit" >Login</Button>
+                <Button variant="contained" style={{backgroundColor:'#B3E0DE', borderRadius: '5px'}} type="submit" >SignUp</Button>
                 <button class="center-align bg-white pr-0 mt-4 mb-0 g-btn" onClick={googleSignin}>
                     <span className="oauth-container btn darken-4 white black-text d-flex p-0" href="/users/google-oauth/">
                     <div className="left mr-2 p-2">
@@ -100,7 +143,7 @@ export default function Login()
                             src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/512px-Google_%22G%22_Logo.svg.png" />
                     </div>
                     <div className="text-center g-btn-b pt-2 px-1">
-                        Login with Google
+                        SignUp with Google
                     </div>
                     </span>
                 </button>

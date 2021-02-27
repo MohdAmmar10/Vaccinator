@@ -151,7 +151,7 @@ export default function Appoinments()
             <div className="nav">
                 <div className="leftNav">
                     <span className="centerName">Center: {center[['Health Facility Name']]} </span>    
-                    <span className="centerAddr">Address: { center['Address'] } </span>    
+                    <span className="centerAddr">Address: { center['Address'] }, </span>    
                     <span className="centerAddr"> { center['locality'] ? center['locality'] : "" }  </span>    
                     <span className="centerAddr">{ center['pincode'] } </span>    
 
@@ -165,10 +165,11 @@ export default function Appoinments()
             </div>
             <div className="container">
                 <div className="tableWrapper">
+                    <h3 className="text-center mt-1 mb-0">Available Time Slots</h3>
                     <table className="mx-auto border table" id="appoint">
                         <thead>
                             <th>
-                                Timing
+                                Timing 
                             </th>
                             <th>
                                 BookNow
@@ -179,7 +180,7 @@ export default function Appoinments()
                                 availSlots.map(slot => (
                                     <tr> 
                                     <td> { slot } </td>
-                                    <td> <button id= {slot} onClick={e => makeAppointment(e, history)}>Book</button> </td>
+                                    <td> <button id= {slot} className="b1" onClick={e => makeAppointment(e, history)}>Book</button> </td>
                                     </tr>
                                 ))
                             }

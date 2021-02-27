@@ -124,8 +124,8 @@ export default function NearByCenters()
     return(
         <div className="Center">
             {console.log(center)}
-            <div className="container">
-				<h3><center>Nearest Vaccination Centers List</center></h3>
+            <div className="container mt-2">
+				<h3><center>Vaccination Centers Near You</center></h3>
 				<div className="table">
 					<table className="mx-auto" id="center">
 						<thead>
@@ -165,7 +165,7 @@ export default function NearByCenters()
 											{result['pincode']}
 										</td>
 										<td>
-											<button onClick={e => bookAp(e, history)} id={result['id']} >Book Appointment</button>
+											<button className="b1" onClick={e => bookAp(e, history)} id={result['id']} >Book Appointment</button>
 										</td>
 									</tr>
 								))

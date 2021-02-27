@@ -1,0 +1,91 @@
+.wrapper {
+    width: 100%;
+    height: 100vh;
+}
+
+.nav {
+    margin-top: 2%;
+    width: 100%;
+    height: 15%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    /* background-color: red; */
+}
+
+.leftNav {
+    width: 50%;
+    height: 100%;
+    /* background-color: blue; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    border-right: 2px solid black;
+}
+
+.centerName {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: 400;
+    font-size: 20pt;
+    box-sizing: border-box;
+    margin: 0px;
+    margin-left: 5%;
+}
+
+.centerAddr {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    /* font-weight: 400; */
+    font-size: 15pt;
+    box-sizing: border-box;
+    margin: 0px;
+    margin-left: 5%;
+}
+
+.rightNav {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.rightNav input {
+    margin: 5px;
+    font-size: large;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.rightNav label {
+    margin: 5px;
+    font-size: large;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.tableWrapper {
+    margin-top: 3%;
+}
+
+.tableWrapper table {
+    width: 30%;
+    text-align: center;
+}
+
+.tableWrapper table th {
+    font-size: larger;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    border-bottom: 2px solid black;
+}
+
+.tableWrapper table td {
+    font-size: large;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    margin-top: 10px !important;
+}
+
+.tableWrapper table button {
+    padding: 5px 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}

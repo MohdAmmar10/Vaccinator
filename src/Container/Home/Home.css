@@ -1,0 +1,26 @@
+.navbar-nav{
+	margin-right: 1.2rem;
+	color: white;
+}
+.nav-link
+{
+	color: white !important;
+}
+.navbar{
+	margin-left: auto;
+	margin-right: auto;
+}
+#card
+{
+	margin-top: 1.2rem;
+	margin-bottom: 1.5rem;
+}
+.responsive {
+	width: 100%;
+	height: auto;
+  }
+/* .footer {
+	background-color: #10214D;
+	text-align: center;
+	color: #fff;
+} */

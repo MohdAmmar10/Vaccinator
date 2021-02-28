@@ -51,3 +51,8 @@ code {
 } .leaflet-container{
   height: 100%;
 }
+/* Map */
+
+.huechange img> .huechange , #myloc> img> .huechange {
+  color: red !important;
+  filter: hue-rotate(120deg)!important};

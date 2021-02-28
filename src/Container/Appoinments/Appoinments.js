@@ -100,14 +100,7 @@ export default function Appoinments()
     function getAppointments(e){
         console.log(e.target.value)
         setSelDate(e.target.value)
-<<<<<<< HEAD
-        db.collection('slots')
-            .where("date","==",new Date(e.target.value))
-            .where("center_id","==",cid)
-            .get()
-=======
         db.collection('slots').where("date","==",new Date(e.target.value)).where("center_id","==",cid).get()
->>>>>>> 421b191c09ada4733b31632ae9a794cdf13ba3cb
             .then(data => {
                 data = data.docs.map(doc => doc.data());
                 console.log(data)

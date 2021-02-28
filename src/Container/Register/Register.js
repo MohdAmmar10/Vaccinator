@@ -46,6 +46,10 @@ export default function Register()
     function signIn(e)
     {
         e.preventDefault()
+        if(phNo.length < 10){
+            setError('Enter valid mobile number')
+            return
+        }
         console.log("normal")
         auth
         .createUserWithEmailAndPassword(email, password)
@@ -110,7 +114,7 @@ export default function Register()
                 <Input 
                 placeholder="Phone No."
                 required
-                type="number"
+                type="text"
                 value={phNo}
                 onChange={(e)=>setPhNo(e.target.value)}
                 />

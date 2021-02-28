@@ -76,7 +76,7 @@ export default function Login()
                 <label className="mr-4 mb-0">Email ID&emsp;</label>
                 <Input 
                 placeholder="Email"
-                type="text"
+                type="email"
                 required
                 value={email}
                 onChange={(e)=>setEmail(e.target.value)}

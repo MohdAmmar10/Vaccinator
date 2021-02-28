@@ -20,15 +20,17 @@ import "firebase/firestore";
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 
 
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-    apiKey: "AIzaSyDeKOj7ieMx1AZIU7V_zBqw9vXUy2Q94LY",
-    authDomain: "vaccine-center-hackathon.firebaseapp.com",
-    projectId: "vaccine-center-hackathon",
-    storageBucket: "vaccine-center-hackathon.appspot.com",
-    messagingSenderId: "837534922536",
-    appId: "1:837534922536:web:6edb0ea4a229648b39c21d",
-    measurementId: "G-847Y70WM68"
-  };
+  apiKey: "AIzaSyARwv07BwfEEzE6jEe9CQ7qXJNrcpFDgjQ",
+  authDomain: "vaccinator-cf826.firebaseapp.com",
+  projectId: "vaccinator-cf826",
+  storageBucket: "vaccinator-cf826.appspot.com",
+  messagingSenderId: "812751301320",
+  appId: "1:812751301320:web:546217a5c34e61b9bdd3fd",
+  measurementId: "G-W94MSHV16R"
+};
   firebase.initializeApp(firebaseConfig);
   export const auth = firebase.auth();
   export const db = firebase.firestore();

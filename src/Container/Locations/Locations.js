@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 // import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
+import { useHistory } from 'react-router-dom';
 import Map from '../Map/Map';
 var options = {
     enableHighAccuracy: true,
@@ -17,10 +18,12 @@ var options = {
         super(props);
         this.state = {
         selectedPlace: '',
-        center: {lat:18.966521099999998,lng:72.82870679999999},
-        zoom: 11
+        center: {lat:19.020436,lng:72.873199},
+        zoom: 11,
+        // history: useHistory()
     }
     }
+    
     success(pos) {
         var crd = pos.coords;
         // this.state.lat =  crd.latitude
@@ -55,7 +58,12 @@ var options = {
                     
                   });
                  } else if (result.state === "prompt") {
-                navigator.geolocation.getCurrentPosition(this.success, errors, options);
+                navigator.geolocation.getCurrentPosition(function(position) {
+                  console.log("Latitude is :", position.coords.latitude);
+                  console.log("Longitude is :", position.coords.longitude);
+                  setLoc(position.coords.latitude,position.coords.longitude);
+                  
+                }, errors, options);
               } else if (result.state === "denied") {
                 //If denied then you have to show instructions to enable location
               }

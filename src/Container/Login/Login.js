@@ -2,16 +2,17 @@ import React,{useState, useContext}  from 'react';
 import { Button,Input } from '@material-ui/core';
 import {db,auth,firebase, provider } from '../../firebase';
 import { UserContext } from "../../providers/UserProvider";
-
+import {useHistory} from 'react-router-dom'
 import Logo from '../../Images/Logo.jpeg'
 
 export default function Login()
 {
     // const[username,setUsername]=useState('');
-    const user = useContext(UserContext);
+    const user = useContext(UserContext)[0];
     const[password,setPassword]=useState('');
     const[email,setEmail]=useState('');
     const [error, setError] = useState(null);
+    const history  = useHistory()
     console.log(user);
     // const[user,setUser]=useState(null);
     // const [user,setUser] = useState(false);
@@ -22,6 +23,7 @@ export default function Login()
         .then((body) => {
             console.log(body)
             console.log(body.user.uid)
+            history.push('/')
         // this.props.history.push('/');
         })
         .catch((error) => {
@@ -38,6 +40,7 @@ export default function Login()
         .signInWithEmailAndPassword(email, password)
         .then((body) => {
             console.log(body.user.uid)
+            history.push('/')
         // this.props.history.push('/');
         })
         .catch((error) => {

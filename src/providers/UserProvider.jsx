@@ -11,9 +11,13 @@ class UserProvider extends Component {
         this.setState({ user: userAuth});
       });
     };
+    setUser = (user) => {
+      this.setState((prevState) => ({ user }))
+    }
     render() {
+      const { setUser } = this
       return (
-        <UserContext.Provider value={this.state.user}>
+        <UserContext.Provider value={[this.state.user,setUser]}>
           {this.props.children}
         </UserContext.Provider>
       );

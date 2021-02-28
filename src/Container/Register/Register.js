@@ -2,7 +2,7 @@ import React,{useState, useContext}  from 'react';
 import { Button,Input } from '@material-ui/core';
 import {db,auth,firebase, provider } from '../../firebase';
 import { UserContext } from "../../providers/UserProvider";
-
+import {useHistory} from 'react-router-dom'
 import Logo from '../../Images/Logo.jpeg'
 
 export default function Register()
@@ -13,6 +13,7 @@ export default function Register()
     const[email,setEmail]=useState('');
     const[fName,setFName]=useState('');
     const[phNo,setPhNo]=useState('');
+    const history  = useHistory()
     const [error, setError] = useState(null);
     console.log(user);
     // const[user,setUser]=useState(null);
@@ -35,6 +36,7 @@ export default function Register()
                 phoneno: no
               });
               console.log(userRef)
+            history.push('/')
         // this.props.history.push('/');
         })
         .catch((error) => {
@@ -63,6 +65,7 @@ export default function Register()
                 phoneno: phNo
               });
               console.log(userRef)
+              history.push('/')
         // this.props.history.push('/');
         })
         .catch((error) => {

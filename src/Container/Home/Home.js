@@ -1,11 +1,16 @@
-import React from 'react';
+import React,{useContext} from 'react';
 import './Home.css';
 import Logo from '../../Images/LOGO.svg'
 import Bgimg from '../../Images/Covid.jpg'
 import Card from '../../Cards/Card';
+import {Link} from 'react-router-dom'
+import { UserContext } from "../../providers/UserProvider";
 // import Navbar from "./Component/Navbar";
 export default function Home()
 {
+	const user = useContext(UserContext)[0];
+	
+	console.log(user)
 	return(
 		<div>
 			{/* <Navbar /> */}
@@ -23,17 +28,37 @@ export default function Home()
 				<div className="collapse navbar-collapse" id="navlinks">
     				<ul className="navbar-nav ml-auto">
 						<li className="nav-item">
-							<a className="nav-link" href="#">HOME</a>
+							<Link className="nav-link" to="/">HOME</Link>
+						</li>
+						
+						{user===null||user===undefined?
+						<>
+						<li className="nav-item">
+							<Link className="nav-link" to="/login">LOGIN</Link>
 						</li>
 						<li className="nav-item">
-							<a className="nav-link" href="#">APPOINTMENT</a>
+							<Link className="nav-link" to="/register">SIGNUP</Link>
+						</li>
+						</>
+						:
+						<>
+						<li className="nav-item">
+							<Link className="nav-link" to="/centers">ALL CENTERS</Link>
 						</li>
 						<li className="nav-item">
-							<a className="nav-link" href="#">MAP</a>
+							<Link className="nav-link" to="/nearby-centers">NEARBY CENTERS</Link>
 						</li>
 						<li className="nav-item">
-							<a className="nav-link" href="#">SIGN UP</a>
+							<Link className="nav-link" to="/locations">MAP</Link>
 						</li>
+						{/* <li className="nav-item">
+							<Link className="nav-link" to="/account">MYACCOUNT</Link>
+						</li> */}
+						<li className="nav-item">
+							<Link className="nav-link" to="/signout">SIGNOUT</Link>
+						</li>
+						</>
+						}
     				</ul>
   				</div>
 			</nav>
@@ -49,11 +74,14 @@ export default function Home()
 			</div>
 			<div className="container-fluid d-flex justify-content-center" id="card">
 				<div className="row">
-					<div className="col-md-6">
-						<Card/>
+					<div className=" col-12 col-md-4">
+						<Card head={"All Centers"} desc={"This page contains list of all centers"} link={"/centers"} />
 					</div>
-					<div className="col-md-6">
-						<Card/>
+					<div className="col-12 col-md-4">
+					<Card head={"Nearset Centers"} desc={"This page contains centers near you"} link={"/nearby-centers"} />
+					</div>
+					<div className="col-12 col-md-4">
+					<Card head={"Map"} desc={"This page contains all centers in map"} link={"/location"} />
 					</div>
 				</div>
 			</div>
@@ -72,21 +100,41 @@ export default function Home()
 						<div class="col-lg-3 col-md-6 mb-4 mb-md-0">
 							<h5 class="text-uppercase">Quick Links</h5>
 							<ul class="list-unstyled mb-0">
-							<li>
-								<a href="#!" class="text-white">Home</a>
-							</li>
-							<li>
-								<a href="#!" class="text-white">Map</a>
-							</li>
-							<li>
-								<a href="#!" class="text-white">Appointment</a>
-							</li>
-							<li>
-								<a href="#!" class="text-white">Link 4</a>
-							</li>
+							<li className="nav-item">
+							<Link className="nav-link" to="/">HOME</Link>
+						</li>
+						
+						{user===null||user===undefined?
+						<>
+						<li className="nav-item">
+							<Link className="nav-link" to="/login">LOGIN</Link>
+						</li>
+						<li className="nav-item">
+							<Link className="nav-link" to="/register">SIGNUP</Link>
+						</li>
+						</>
+						:
+						<>
+						<li className="nav-item">
+							<Link className="nav-link" to="/centers">ALL CENTERS</Link>
+						</li>
+						<li className="nav-item">
+							<Link className="nav-link" to="/nearby-centers">NEARBY CENTERS</Link>
+						</li>
+						<li className="nav-item">
+							<Link className="nav-link" to="/locations">MAP</Link>
+						</li>
+						{/* <li className="nav-item">
+							<Link className="nav-link" to="/account">MYACCOUNT</Link>
+						</li> */}
+						<li className="nav-item">
+							<Link className="nav-link" to="/signout">SIGNOUT</Link>
+						</li>
+						</>
+						}
 							</ul>
 						</div>
-						<div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+						{/* <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
 							<h5 class="text-uppercase mb-0">Links</h5>
 							<ul class="list-unstyled">
 							<li>
@@ -102,7 +150,7 @@ export default function Home()
 								<a href="#!" class="text-white">Link 4</a>
 							</li>
 							</ul>
-						</div>
+						</div> */}
 					</div>
 				</div>
 				<div class="text-center p-3">

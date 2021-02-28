@@ -52,7 +52,7 @@ export default function Appoinments()
         "04:50:00 PM",
     ];
     const location = useLocation();
-    const user = useContext(UserContext);
+    const user = useContext(UserContext)[0];
     const cid = location.state
     console.log(cid)
     const history = useHistory()

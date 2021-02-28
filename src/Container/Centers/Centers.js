@@ -1,4 +1,9 @@
+<<<<<<< HEAD
 import React, { useState, useContext, useEffect } from 'react';
+=======
+import React,{useState, useContext, useEffect}  from 'react';
+import './Centers.css';
+>>>>>>> 421b191c09ada4733b31632ae9a794cdf13ba3cb
 import { useHistory } from 'react-router-dom';
 import { Button, Input } from '@material-ui/core';
 import { db, auth, provider } from '../../firebase';
@@ -54,6 +59,7 @@ export default function Centers() {
             state: e.target.id // your data array of objects
         });
     }
+<<<<<<< HEAD
     return ( <div className = "Center" >
         <div className = "table" >
         <table className = "mx-auto" >
@@ -85,5 +91,62 @@ export default function Centers() {
         </table> 
         </div> 
         <button onClick = { getData } > </button> </div>
+=======
+    return(
+        <div className="Center">
+            <div className="container mt-2">
+				<h3><center>All Vaccination Centers</center></h3>
+				<div className="table">
+					<table className="mx-auto" id="center">
+						<thead>
+							<tr>
+								<th>
+									Center Name
+								</th>
+								<th>
+									Center Address
+								</th>
+								<th>
+									Center Locality
+								</th>
+								<th>
+									Pincode
+								</th>
+								<th>
+									Appointment Bookings
+								</th>
+							</tr>
+						</thead>
+						<tbody>
+							{console.log(body)}
+							{
+								body.map(result =>(
+									<tr key={result['id']}>
+										<td>
+											{result['Health Facility Name']}
+										</td>
+										<td>
+											{result['Address']}
+										</td>
+										<td>
+											{result['locality']?result['locality']:"-"}
+										</td>
+										<td>
+											{result['pincode']}
+										</td>
+										<td>
+											<button className="b1" onClick={e => bookAp(e, history)} id={result['id']}  >Book Appointment</button>
+										</td>
+									</tr>
+								))
+							}
+						</tbody>
+					</table>
+				</div>
+				<button onClick={getData} id="b2" class="float-right">Show more....</button>
+			</div>
+            	
+        </div>
+>>>>>>> 421b191c09ada4733b31632ae9a794cdf13ba3cb
     )
 }

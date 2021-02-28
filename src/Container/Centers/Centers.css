@@ -1,0 +1,59 @@
+#center {
+	border-collapse: collapse;
+	width: 100%;
+	margin-top: 1.5rem;
+	margin-bottom: 1.5rem;
+}
+#center td, #center th {
+	border: 1px solid #ddd;
+	padding: 8px;
+}
+#center tr:nth-child(even)
+{
+	background-color: #f2f2f2;
+}
+#center tr:hover 
+{
+	background-color: #ddd;
+}
+#center th {
+	padding-top: 12px;
+	padding-bottom: 12px;
+	text-align: left;
+	background-color: #002651;
+	color: white;
+}
+.b1{
+	background-color: #002651;
+	color: white;
+	border-radius: 0.5rem;
+}
+#b2{
+	background-color: #002651;
+	color: white;
+	border-radius: 4px;
+	transition: all 0.5s;
+	cursor: pointer;
+	margin-bottom: 2rem;
+}
+.b2 span {
+	cursor: pointer;
+	display: inline-block;
+	position: relative;
+	transition: 0.5s;
+}
+.b2 span:after {
+	content: '\00bb';
+	position: absolute;
+	opacity: 0;
+	top: 0;
+	right: -20px;
+	transition: 0.5s;
+}
+.b2:hover span {
+	padding-right: 25px;
+}
+.b2:hover span:after {
+	opacity: 1;
+	right: 0;
+}
